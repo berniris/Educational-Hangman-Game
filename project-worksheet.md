@@ -19,23 +19,15 @@ This schedule will be used to keep track of your progress throughout the week an
 
 Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
 
-I love scary movies so I am creating a hangman game with a horror movie theme. I want to hopefully create categories, maybe by decade or movie versus tv. If I am able to implement user category choice, functionality for this will be included on the landing page. 
+I love scary movies and all things related to horrow so I am creating a trivia game based on horror movies & scary folklore. 
 
-* The program will begin with a landing page that features a title, a sketch of a full drawn hangman or maybe some interactive media if I have time, and brief insturctions on how the game will work and a button to begin the game. 
+* The program will begin with a landing page that features a title, a sketch of a full drawn TBD monster or maybe some interactive media if I have time, and brief insturctions on how the game will work and a button to begin the game. 
 
-* Next, the user will be taken to the hang man screen which will display the alphabet in a form of clickable buttons. Might opt to allow user to just enter letters as guesses via letter + enter keyboard method with a box to update correct guesses and incorrect guesses instead. Will try former method first and reasses if too diffuclt. 
+* Next, the user will be taken to a screen which will display a question and multiple choice answers. There will be a timer that count downs for the user to see in real time. If the counter runs out, an X will appear in a flash, then the monsters head will appear and finally the user will be presented with the next question.  
 
-Ideas of how to construct hangman sketch:
-https://www.codecademy.com/en/courses/javascript-intermediate-tpoPb/1/5
+Chosen question for any instance of the game will be chosen using Math.random().  
 
-If I can get to work might model clickable alphabet after this pen: 
-https://codepen.io/cathydutton/pen/ldazc?editors=1010
-
-Chosen word for any instance of the game will be chosen using Math.random(). Will create a for loop to loop through the chosen word length to create the _ _ _ _ _ _ _ spaces. Will need to decide on how many guesses I want the user to be able to make as I will probably want to make this uniform amongst all categories and instances of the game. The bottom post for the hangman sketch will be present at start of game. 
-
-User should be allowed to freely enter keys and get back updates of how many guesses they have left inclduing storing incorrect guesses in a "incorrect guess bank" and correct guess in the appropriate _ _ _ _ slot. If all guesses are run out and the hangman drawing is compelete, the game should end, identify the user as a loser, and provide an option to play again. Need to think deeply on if I want the restart of game to return to the initial landing page or provide a prompt of some sort to allow user to choose a cateogry and start the game immediately and bypass the landing page. Same logic goes for if the user wins the game. 
-
-Very difficult deciding which features I might be able to implement and which might be too hard especially if peices of code are contigent upon one another and I discover too late down the road a certain step is too difficult :( 
+User can only make one guess. 
 
 
 ## Wireframes
@@ -48,13 +40,14 @@ Include images of your wireframes.
 Include a full list of features that have been prioritized based on the `Time and Importance` Matix.  
 
 In order of importance:
-1. Getting the hangman to form one body part at a time with each incorrect guess
-2. Getting the play game button to take you to the game
-3. Getting the click on the alphabet button to correspond to a incorrect guess getting tallied to an "incorrect guess bank" plus a hangman body part addition and vice versa if the letter guess is correct
-4. Getting the game to acknowledge an end begin again
-5. Add hint on second to last guess in the form of a brief flash of an image - won't stay there for long and will let user know it'll be quick so they should pay attention.
-5. Add some hover animations for alphabet buttons
-6. Add landing page animations
+1. Getting the game to start from the landing screen
+2. Getting the multiple choice buttons to register correct or incorrect on click
+3. Getting the game to proceed to the next question after the counter has run out 
+4. Getting the game to end and show an option to replay.
+5. Getting the game to show an X or a check mark if the answer is wrong or right 
+6. Getting the monster to grow incrementally with each incorrect answer
+7. Getting the current state of the monster's body to display to the screen after each incorrect answer and a completed monster if the monster gets completed before all the questions are asked. 
+
 
 
 ## Game Components
@@ -62,40 +55,39 @@ In order of importance:
 ### Landing Page
 What will a player see when they start your game?
 
-* A landing page with a title of the game, an image sketch of a completed hangman (might animate this if I have time on document load), brief instructions on the nature of the game and insturctions, and a button to begin the game. 
+* A landing page with a title of the game, an image sketch of the completed monster (might animate this if I have time on document load), brief instructions on the nature of the game and a button to begin.
 
 ### Game Initialization
 What will a player see when the game is started? 
 
-* A starting hangman bottom post. An alphabet in the form of clickable buttons and or a box with a to be decided number of _ _ _ _ spaces for possible letter guesses. There will also be information on how many guesses are left. 
+* A question at the top and buttons containing multiple choice answers. 
 
 ### Playing The Game
 What will be the flow of the game, what will the user be expeted to do and what will the user expect from the game.
 
-* The user will be expected to click on letters or enter letter key guesses to guess the word before they run out of guesses and the hangman is complete. They will have to answer questions related to famous horror movies across different decades or related to famous spooky folklore. 
+* The user will be expected to click on buttons to answer questions within the designated time. There will be a visual countdown for the user to see how much time they have left. The only action the user will have to take is to click on the buttons. 
 
 
 ### Winning The Game
 What does it look like when the game ends, what determines winning or losing?
 
-* Losing means the hangman is complete and has run out of letter guesses. Winning means the user guessed the word before the available guesses have run out. Both outcomes allow the user to choose from different categories to play again. 
+* Losing will show a completed monster at the end with a message notifying the user they lost with an option to play again. Winning means the user completed the quiz before the monster completely generates. The winner will get a message knowing they won and option to play again.  
 
 ### Game Reset
 How will the user restart the game once it has been completed.
 
-I will either provide a button to play again for either scenario - winning or losing that will redirect the user to the orginal landing page or I will provide an array of buttons with different categories to begin the game again immediately with a new word to guess from the chosen category and bypass the original landing screen altogether. I need to think about this a little more though. 
+I will either provide a button to play again for either scenario - winning or losing that will redirect the user to the orginal landing page.
 
 ## MVP 
 
 Include the full list of features that will be part of your MVP 
 
-Landing page with all aforementioned details - button to start the game - ability to enter letter keys to guess - a feature to allow the user to see the correct and incorrect letter guesses thus far - a hangman that springs body parts with each incorrect letter guess - a notification to the user if they have lost the game and run out of guesses and a notification if they have won and the ability to play again
-
+Landing page with all aforementioned details - button to start the game - play game button starts the game and shows a question to the user on the page with buttons with answers. If all else fails, a next button will be provided if the user to manually proceed to the next question. Also a static monster that grows incrementally with each incorrect guess. An end game message with option to replay and a win game message with option to replay. 
 ## POST MVP
 
 Include the full list of features that you are considering for POST MVP
 
-Hints when user is almost out of guesses
+A visual counter. A function to flash a big red X if the counter has run out and the user hasn't selected an answer or if the answer selected within the timeframe is wrong. The monster to flash after the X, not just grow statically on the page. 
 
 
 ## Functional Components
@@ -106,10 +98,12 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Constructing hangman with HTML/CSS | 1 | 1hrs| ?hrs | ?hrs |
-| Getting button to direct you to game | 1 | 1hrs| ?hrs | ?hrs |
-| | 1 | 1hrs| ?hrs | ?hrs |
-| Total |  | 10hrs| 12hrs | 12hrs |
+| Constructing a monster - might use graphics and not HTML or CSS | 4 | 2hrs| ?hrs | ?hrs |
+| Developing trivia game functionality | 1 | 6 hrs| ?hrs | ?hrs |
+| Getting wrong answers to generate a new body part on the monster| 5 | 4hrs| ?hrs | ?hrs |
+| Functionality to end game | 2 | 3hrs| ?hrs | ?hrs |
+| Functionality to replay game | 3 | 3hrs| ?hrs | ?hrs |
+| Total |  | 18hrs| 12hrs | 12hrs |
 
 <!-- ## Helper Functions
 Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
