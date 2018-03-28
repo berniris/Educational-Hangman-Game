@@ -91,15 +91,6 @@ Include the full list of features that will be part of your MVP
 
 Landing page with all aforementioned details - button to start the game - ability to enter letter keys to guess - a feature to allow the user to see the correct and incorrect letter guesses thus far - a hangman that springs body parts with each incorrect letter guess - a notification to the user if they have lost the game and run out of guesses and a notification if they have won and the ability to play again
 
-<!-- 
-
-Model - array of alphabet in the form of clickable buttons 
-        counter of letter guesses left 
-        button to start the game again 
-View - variables to store the letter guesses
-       functions to compare the input from the user (letter guesses) to the letters in the chosen word  -->
-
-
 ## POST MVP
 
 Include the full list of features that you are considering for POST MVP
