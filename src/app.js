@@ -2,80 +2,124 @@ $(document).ready(function () {
   const load = $('.load');
   const play = $('.play');
   const landing = $('.landing');
-  let buttons;
+  const question = $('.question');
+  let choices = $('.choices');
+  let button;
+  let buttons = [];
+  let points = 0;
+  let correct = $('.correct');
+  let wrong = $('.wrong');
+  let currentQuestion = 0;
 
-console.log(play);
+  // const questions = {
+  //   question1: 'British actor Boris Karloff created a cinematic icon when he played the role of what monster?',
+  //   question2: 'In a horror movie, you should worry if you encounter a doll named what'
+  // };
 
-  const questions = {
-    question1: 'British actor Boris Karloff created a cinematic icon when he played the role of what monster?',
-    question2: 'In a horror movie, you should worry if you encounter a doll named what'
+  // let answers = {
+  //   question1: ['Dracula', 'Werewolf', 'Alien', 'Frankenstein'],
+  //   question2: ['A. Smiley', 'B. Bonnie', 'C. Chucky','D. Dolly']
+  // };
+
+  // const correctAnswers = {
+  //   question1: 'Frankenstein',
+  //   question2: 'Chucky'
+  // };
+
+  const game = [{
+    question: 'British actor Boris Karloff created a cinematic icon when he played the role of what monster?',
+    answers: ['Dracula', 'Werewolf', 'Frankenstein', 'Alien'],
+    answer: 2
+  },
+  {
+    question: 'In a horror movie, you should worry if you encounter a doll named what?',
+    answers: ['Chucky', 'Bonnie', 'Pennywise','Bilbo'],
+    answer: 2
+  },
+  {
+    question: 'In what horror flick did the survivors hide out in a mall?',
+    answers: ['Wrong Turn', 'Dawn of the Dead', 'The Ring', 'Texas Chainsaw Massacre'],
+    answer: 1
+  },
+  {
+    question: 'Which one of these films was the last horror movie to win Best Picture at the Academy Awards?',
+    answers: ['Jaws', 'The Exorcist', 'Silence of the Lambs', 'The Sixth Sense'],
+    answer: 2
+  },
+  {
+    question: 'What is the name of the motel in Psycho?',
+    answers: ['Bel Air Motel', 'Bates Motel', 'The Commons', 'Crave Inn'],
+    answer:  1
+  },
+  {
+    question: 'Which horror film was the first to be nominated for a best picture Oscar?',
+    answers: ['Rosemarys Baby', 'Poltergeist', 'The Exorcist', 'Carrie' ],
+    answer: 2
+  }];
+
+
+
+  wrong.hide();
+  correct.hide();
+  play.hide();
+
+  load.click(loadGame);
+
+  function loadGame(event) {
+    play.show();
+    landing.hide();
+    printQuestion();
   }
 
-  let answers = {
-    question1: ['Dracula', 'Werewolf', 'Alien', 'Frankenstein'],
-    question2: ['A. Smiley', 'B. Bonnie', 'C. Chucky','D. Dolly']
-  };
-
-const correctAnswers = {
-  question1: 'Frankenstein',
-  question2: 'Chucky'
+  function printQuestion() {
+  const displayQuestion = game[currentQuestion].question;
+  question.text(displayQuestion);
+  console.log(currentQuestion);
 }
-console.log(correctAnswers);
-
-console.log(correctAnswers);
-play.hide();
-load.click(loadGame);
-
-function loadGame(event) {
-  play.show();
-  landing.hide();
-}
-
-
-function printQuestion() {
-
-  play.append(questions.question1);
-}
-
 printQuestion();
 
 
 function createButtons () {
-
-  for(let i = 0; i < answers.question1.length; i++) {
-    buttons = $('<button></button>').text(answers.question1[i]);
-    play.append(buttons);
+  buttons = [];
+  for (let i = 0; i < game[currentQuestion].answers.length; i++) {
+    button = $('<button></button>').text(game[currentQuestion].answers[i]).addClass('button');
+    button.click(rightOrWrong);
+    buttons.push(button);
+    choices.append(button);
   }
-  return buttons;
+  console.log(buttons);
 }
-
 createButtons();
 
-$(buttons).click(function() {
-  console.log('clicked');
-  console.log($(this));
-    if (buttons.text() === correctAnswers.question1) {
-    play.hide();
-    $('<div>You won!</div>');
+  function rightOrWrong() {
+  play.hide()
+  if ($(this).text() === game[currentQuestion].answers[game[currentQuestion].answer])  {
+    points += 1;
+    console.log(points);
+    correct.show();
+  } else {
+    wrong.show();
   }
+}
+  setTimeout(function () {
+   correct.hide();
+   wrong.hide();
+ }, 5000);
+   // console.log(game.length-1);
+   console.log('hello');
+
+
+  if (currentQuestion !== game.length - 1) {
+   currentQuestion++;
+   console.log(currentQuestion);
+ } else {
+  console.log("end game");
+  printQuestion();
+  createButtons();
+}
+
+console.log(currentQuestion);
 
 });
 
-console.log(correctAnswers.question1);
-
-
-  // function chooseAnswer(event) {
-  //   if (event.target !== correctAnswers.question1 || correctAnswers.quetion2) {
-  //     play.hide()
-  //   }
-  // }
-  //     wrong.show()
-  //     }
-  //       else {
-  //         $(correct).show();
-  //         nextQuestions();
-  // }
-  // }
-  // chooseAnswer();
-});
 

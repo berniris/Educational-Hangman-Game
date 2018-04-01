@@ -5,34 +5,43 @@ body {
 
 h1 {
   font-family: 'Creepster', cursive;
-  font-size: 70px;
-  color: #ffffff;
+  font-size: 50px;
+  color: #88D317;
 }
 
-.monster {
-
+.penny {
+position: absolute;
+bottom: 0;
 }
 
 .instructions {
   position: relative;
-  margin-left: 400px;
+  margin-left: 500px;
   width: 400px;
-  color: #88D317;
+  color: #ffffff;
   font-size: 30px;
   line-height: 40px;
   font-family: 'Creepster', cursive;
   position: absolute;
-  margin-top: -400px;
-  margin-right: 100px;
+  margin-top: 30px;
 
 }
 
-.load {
+.load, .button {
   background-color: #1A0315;
-  color: #ffffff;
+  color: #88D317;
   font-family: 'Creepster', cursive;
   padding: 30px;
   font-size: 25px;
+}
+
+.button {
+  margin: 20px;
+  position: relative;
+}
+
+.choices {
+  text-align: center;
 }
 
 .play {
@@ -40,3 +49,11 @@ h1 {
   font-size: 50px;
   color: #88D317;;
 }
+
+.question {
+  position: relative;
+  margin-top: 100px;
+  text-align: center;
+}
+
+
