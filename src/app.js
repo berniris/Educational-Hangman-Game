@@ -19,7 +19,7 @@ $(document).ready(function () {
   {
     question: 'In a horror movie, you should worry if you encounter a doll named what?',
     answers: ['Chucky', 'Bonnie', 'Pennywise','Bilbo'],
-    answer: 2
+    answer: 0
   },
   {
     question: 'In what horror flick did the survivors hide out in a mall?',
@@ -78,6 +78,7 @@ function createButtons () {
 
   function rightOrWrong() {
   play.text("");
+  choices.text("");
   if ($(this).text() === game[currentQuestion].answers[game[currentQuestion].answer])  {
     points += 1;
     correct.show()
