@@ -11,21 +11,6 @@ $(document).ready(function () {
   let wrong = $('.wrong');
   let currentQuestion = 0;
 
-  // const questions = {
-  //   question1: 'British actor Boris Karloff created a cinematic icon when he played the role of what monster?',
-  //   question2: 'In a horror movie, you should worry if you encounter a doll named what'
-  // };
-
-  // let answers = {
-  //   question1: ['Dracula', 'Werewolf', 'Alien', 'Frankenstein'],
-  //   question2: ['A. Smiley', 'B. Bonnie', 'C. Chucky','D. Dolly']
-  // };
-
-  // const correctAnswers = {
-  //   question1: 'Frankenstein',
-  //   question2: 'Chucky'
-  // };
-
   const game = [{
     question: 'British actor Boris Karloff created a cinematic icon when he played the role of what monster?',
     answers: ['Dracula', 'Werewolf', 'Frankenstein', 'Alien'],
@@ -62,22 +47,23 @@ $(document).ready(function () {
   wrong.hide();
   correct.hide();
   play.hide();
-
+  console.log(currentQuestion);
   load.click(loadGame);
 
   function loadGame(event) {
     play.show();
     landing.hide();
     printQuestion();
+    createButtons();
   }
 
-  function printQuestion() {
-  const displayQuestion = game[currentQuestion].question;
-  question.text(displayQuestion);
-  console.log(currentQuestion);
-}
-printQuestion();
+function printQuestion() {
 
+console.log(currentQuestion);
+const displayQuestion = game[currentQuestion].question;
+question.text(displayQuestion);
+console.log(currentQuestion);
+}
 
 function createButtons () {
   buttons = [];
@@ -89,36 +75,37 @@ function createButtons () {
   }
   console.log(buttons);
 }
-createButtons();
 
   function rightOrWrong() {
-  play.hide()
+  play.text("");
   if ($(this).text() === game[currentQuestion].answers[game[currentQuestion].answer])  {
     points += 1;
-    console.log(points);
-    correct.show();
+    correct.show()
   } else {
-    wrong.show();
+      console.log("end game");
+      wrong.show();
   }
-}
-  setTimeout(function () {
+
+    setTimeout(function () {
    correct.hide();
    wrong.hide();
- }, 5000);
-   // console.log(game.length-1);
-   console.log('hello');
+ }, 2000);
 
-
-  if (currentQuestion !== game.length - 1) {
+ if (currentQuestion !== game.length - 1) {
    currentQuestion++;
    console.log(currentQuestion);
  } else {
   console.log("end game");
-  printQuestion();
-  createButtons();
 }
 
-console.log(currentQuestion);
+setTimeout(function () {
+play.show();
+   play.append(game[currentQuestion].question);
+   createButtons();
+   play.append(choices);
+}, 2000);
+
+}
 
 });
 
