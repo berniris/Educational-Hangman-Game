@@ -3,6 +3,7 @@ $(document).ready(function () {
   const play = $('.play');
   const landing = $('.landing');
   const question = $('.question');
+  const gameOver = $('.game-over');
   let choices = $('.choices');
   let button;
   let buttons = [];
@@ -43,7 +44,7 @@ $(document).ready(function () {
   }];
 
 
-
+ gameOver.hide();
   wrong.hide();
   correct.hide();
   play.hide();
@@ -95,19 +96,15 @@ function createButtons () {
  if (currentQuestion !== game.length - 1) {
    currentQuestion++;
    console.log(currentQuestion);
- } else {
-  console.log("end game");
-}
-
-setTimeout(function () {
+   setTimeout(function () {
 play.show();
    play.append(game[currentQuestion].question);
    createButtons();
    play.append(choices);
 }, 2000);
-
+ } else {
+  gameOver.show();
+}
 }
 
 });
-
-
