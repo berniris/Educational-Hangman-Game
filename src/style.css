@@ -1,30 +1,88 @@
 body {
   background-color: #6E3667;
+  font-family: 'Creepster', cursive;
 }
 
 
 h1 {
-  font-family: 'Creepster', cursive;
   font-size: 50px;
   color: #88D317;
 }
 
-.penny {
+.pennywise {
 position: absolute;
 bottom: 0;
+}
+
+@media only screen
+  and (min-device-width: 768px)
+  and (max-width: 1200px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+  .pennywise {
+  display: none;
+  }
+  .instructions p{
+    position: absolute;
+    width: 200px;
+    margin-left: -500px;
+/*    margin-top: -200px;*/
+  }
+  .instructions  button {
+    position: absolute;
+    margin-left: -200px;
+    margin-top: -125px;
+  }
+  .balloons {
+    display: none;
+  }
 }
 
 .instructions {
   position: relative;
   margin-left: 500px;
-  width: 400px;
+  width: 300px;
   color: #ffffff;
   font-size: 30px;
   line-height: 40px;
-  font-family: 'Creepster', cursive;
   position: absolute;
   margin-top: 30px;
+}
 
+.form-instructions {
+  font-family: 'Arvo', serif;
+  width: 300px;
+}
+
+.balloons {
+  position: absolute;
+  animation: balloons 10s linear infinite;
+}
+
+.balloon1 {
+  top: 600px;
+  left: 800px;
+}
+
+.balloon2 {
+  top: 550px;
+  left: 900px;
+}
+
+.balloon3 {
+  top: 650px;
+  left: 1000px;
+}
+
+@keyframes balloons {
+  0% {
+    bottom : 0;
+  }
+  10% {
+    bottom: 50%;
+  }
+  100% {
+    top: 0%;
+  }
 }
 
 .load, .button {
@@ -45,9 +103,8 @@ bottom: 0;
 }
 
 .play {
-  font-family: 'Creepster', cursive;
   font-size: 50px;
-  color: #88D317;;
+  color: #88D317;
 }
 
 .question {
@@ -56,4 +113,17 @@ bottom: 0;
   text-align: center;
 }
 
+.wrong, .correct {
+  font-size: 60px;
+  text-align: center;
+  color: #1A0315;;
+}
+
+.correct {
+  color: #88D317;
+}
+
+.game-over {
+  font-size: 60px;
+}
 

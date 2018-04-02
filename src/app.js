@@ -11,6 +11,7 @@ $(document).ready(function () {
   let correct = $('.correct');
   let wrong = $('.wrong');
   let currentQuestion = 0;
+  const name = $('.name');
 
   const game = [{
     question: 'British actor Boris Karloff created a cinematic icon when he played the role of what monster?',
@@ -43,6 +44,13 @@ $(document).ready(function () {
     answer: 2
   }];
 
+$('form').submit(function(event) {
+ name = name.val();
+ return name;
+ console.log(name.val());
+})
+
+console.log(name);
 
  gameOver.hide();
   wrong.hide();
@@ -84,8 +92,9 @@ function createButtons () {
     points += 1;
     correct.show()
   } else {
-      console.log("end game");
+      wrong.text('');
       wrong.show();
+      wrong.append(`Wrong! Correct answer was ${game[currentQuestion].answers[game[currentQuestion].answer]}.`);
   }
 
     setTimeout(function () {
@@ -97,14 +106,21 @@ function createButtons () {
    currentQuestion++;
    console.log(currentQuestion);
    setTimeout(function () {
-play.show();
-   play.append(game[currentQuestion].question);
+   play.show();
+   play.append(question);
+   //below is NOT DRY - similar to printQuestion() function - try to wrap in a function later -
+   question.text('');
+   question.append(game[currentQuestion].question);
    createButtons();
    play.append(choices);
 }, 2000);
  } else {
   gameOver.show();
+  gameOver.append(`${points} out of 6`);
 }
 }
+
+// //form on submit event - not click event for form
+// grab value of input not value of form
 
 });
