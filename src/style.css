@@ -1,3 +1,12 @@
+
+html,body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
 body {
   background-color: #6E3667;
   font-family: 'Creepster', cursive;
@@ -7,6 +16,7 @@ body {
 h1 {
   font-size: 50px;
   color: #88D317;
+  margin-left: 50px;
 }
 
 .pennywise {
@@ -19,18 +29,18 @@ bottom: 0;
   and (max-width: 1200px)
   and (-webkit-min-device-pixel-ratio: 1) {
   .pennywise {
-  display: none;
+  margin-left: 500px;
   }
   .instructions p{
     position: absolute;
     width: 200px;
-    margin-left: -500px;
-/*    margin-top: -200px;*/
+    margin-left: -450px;
+    margin-top: 200px;
   }
   .instructions  button {
     position: absolute;
     margin-left: -200px;
-    margin-top: -125px;
+    margin-top: 200px;
   }
   .balloons {
     display: none;
@@ -41,16 +51,33 @@ bottom: 0;
   position: relative;
   margin-left: 500px;
   width: 300px;
-  color: #ffffff;
+  color: #1A0315;
   font-size: 30px;
   line-height: 40px;
   position: absolute;
-  margin-top: 30px;
+  margin-top: -120px;
 }
 
 .form-instructions {
+  margin-left: 50px;
   font-family: 'Arvo', serif;
   width: 300px;
+}
+
+form {
+  margin-left: 50px;
+
+}
+
+input, .submit {
+  background-color: #88D317;
+  color: #1A0315;
+  border: 1px solid #1A0315;
+  outline-color: #ffffff;
+}
+
+.firstName {
+  width: 200px;
 }
 
 .balloons {
@@ -85,17 +112,22 @@ bottom: 0;
   }
 }
 
-.load, .button {
+.load, .button, .reload {
   background-color: #1A0315;
   color: #88D317;
   font-family: 'Creepster', cursive;
   padding: 30px;
   font-size: 25px;
+  border: 1px solid #88D317;
 }
 
 .button {
   margin: 20px;
   position: relative;
+}
+
+.reload {
+  margin: 100px;
 }
 
 .choices {
@@ -125,5 +157,9 @@ bottom: 0;
 
 .game-over {
   font-size: 60px;
+}
+
+.game-over h1 {
+margin-left: 0px;
 }
 

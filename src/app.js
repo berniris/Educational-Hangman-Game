@@ -12,6 +12,7 @@ $(document).ready(function () {
   let wrong = $('.wrong');
   let currentQuestion = 0;
   const firstName = $('.firstName');
+  let userName;
 
   const game = [{
     question: 'British actor Boris Karloff created a cinematic icon when he played the role of what monster?',
@@ -44,35 +45,39 @@ $(document).ready(function () {
     answer: 2
   }];
 
-$('form').submit(function(e) {
-  e.preventDefault();
- firstName.val();
- console.log(firstName.val());
+  $('form').submit(function(e) {
+    e.preventDefault();
+    userName = firstName.val();
+    firstName.val("");
+    $(firstName).attr('placeholder', 'Thanks for following directions!');
+    console.log(firstName.val());
 // return yourName;
 })
 
-//onsole.log(name);
+gameOver.hide();
+wrong.hide();
+correct.hide();
+play.hide();
+console.log(currentQuestion);
+load.click(loadGame);
 
- gameOver.hide();
-  wrong.hide();
-  correct.hide();
-  play.hide();
-  console.log(currentQuestion);
-  load.click(loadGame);
-
-  function loadGame(event) {
+function loadGame(event) {
+  if(firstName.val() === "" && firstName.attr('placeholder')!="Thanks for following directions!") {
+    alert("Please enter your name and click Submit before clicking Play Game.");
+  } else {
     play.show();
     landing.hide();
     printQuestion();
     createButtons();
   }
+}
 
 function printQuestion() {
 
-console.log(currentQuestion);
-const displayQuestion = game[currentQuestion].question;
-question.text(displayQuestion);
-console.log(currentQuestion);
+  console.log(currentQuestion);
+  const displayQuestion = game[currentQuestion].question;
+  question.text(displayQuestion);
+  console.log(currentQuestion);
 }
 
 function createButtons () {
@@ -86,42 +91,43 @@ function createButtons () {
   console.log(buttons);
 }
 
-  function rightOrWrong() {
+function rightOrWrong() {
   play.text("");
   choices.text("");
   if ($(this).text() === game[currentQuestion].answers[game[currentQuestion].answer])  {
     points += 1;
     correct.show()
   } else {
-      wrong.text('');
-      wrong.show();
-      wrong.append(`Wrong! Correct answer was ${game[currentQuestion].answers[game[currentQuestion].answer]}.`);
+    wrong.text('');
+    wrong.show();
+    wrong.append(`Wrong! Correct answer was ${game[currentQuestion].answers[game[currentQuestion].answer]}.`);
   }
 
-    setTimeout(function () {
+  setTimeout(function () {
    correct.hide();
    wrong.hide();
  }, 2000);
 
- if (currentQuestion !== game.length - 1) {
+  if (currentQuestion !== game.length - 1) {
    currentQuestion++;
    console.log(currentQuestion);
    setTimeout(function () {
-   play.show();
-   play.append(question);
+     play.show();
+     play.append(question);
    //below is NOT DRY - similar to printQuestion() function - try to wrap in a function later -
    question.text('');
    question.append(game[currentQuestion].question);
    createButtons();
    play.append(choices);
-}, 2000);
+ }, 2000);
  } else {
   gameOver.show();
-  gameOver.append(`${firstName.val()}, you earned ${points} out of 6`);
+  gameOver.append(`${userName}, you earned ${points} out of 6 points.`);
+  gameOver.append('<button class="reload">Play Again?</button>')
+  $('.reload').on('click', function () {
+    window.location.reload();
+  })
 }
 }
-
-// //form on submit event - not click event for form
-// grab value of input not value of form
 
 });
