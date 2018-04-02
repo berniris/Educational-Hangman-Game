@@ -11,7 +11,7 @@ $(document).ready(function () {
   let correct = $('.correct');
   let wrong = $('.wrong');
   let currentQuestion = 0;
-  const name = $('.name');
+  const firstName = $('.firstName');
 
   const game = [{
     question: 'British actor Boris Karloff created a cinematic icon when he played the role of what monster?',
@@ -44,13 +44,14 @@ $(document).ready(function () {
     answer: 2
   }];
 
-$('form').submit(function(event) {
- name = name.val();
- return name;
- console.log(name.val());
+$('form').submit(function(e) {
+  e.preventDefault();
+ firstName.val();
+ console.log(firstName.val());
+// return yourName;
 })
 
-console.log(name);
+//onsole.log(name);
 
  gameOver.hide();
   wrong.hide();
@@ -116,7 +117,7 @@ function createButtons () {
 }, 2000);
  } else {
   gameOver.show();
-  gameOver.append(`${points} out of 6`);
+  gameOver.append(`${firstName.val()}, you earned ${points} out of 6`);
 }
 }
 
