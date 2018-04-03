@@ -1,10 +1,14 @@
 # Spooky-Trivia-Game
 Project 1
 
+## Description
+
+A horror movie themed trivia game.
+
 ## Features
-Javascript 
-jQuery
-CSS & CSS3 Transitions
+Javascript |
+jQuery |
+CSS & CSS3 Transitions |
 HTML
 
 ## Constraints/Obstacles
