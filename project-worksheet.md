@@ -98,11 +98,11 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Constructing a monster - might use graphics and not HTML or CSS | 4 | 2hrs| ?hrs | ?hrs |
-| Developing trivia game functionality | 1 | 6 hrs| ?hrs | ?hrs |
-| Getting wrong answers to generate a new body part on the monster| 5 | 4hrs| ?hrs | ?hrs |
-| Functionality to end game | 2 | 3hrs| ?hrs | ?hrs |
-| Functionality to replay game | 3 | 3hrs| ?hrs | ?hrs |
+| Constructing a monster - might use graphics and not HTML or CSS | 4 | 2hrs| 0hrs | 0hrs |
+| Developing trivia game functionality | 1 | 6hrs| 20hrs | hrs |
+| Getting wrong answers to generate a new body part on the monster| 5 | 4hrs| 0hrs | ?hrs |
+| Functionality to end game | 2 | 3hrs| 2hrs | ?hrs |
+| Functionality to replay game | 3 | 3hrs| 1hrs | ?hrs |
 | Total |  | 18hrs| 12hrs | 12hrs |
 
 <!-- ## Helper Functions

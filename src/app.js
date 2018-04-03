@@ -47,8 +47,8 @@ $(document).ready(function () {
 
   $('form').submit(function(e) {
     e.preventDefault();
-    userName = firstName.val();
-    firstName.val("");
+    // userName = firstName.val();
+    // firstName.val("");
     $(firstName).attr('placeholder', 'Thanks for following directions!');
     console.log(firstName.val());
 // return yourName;
